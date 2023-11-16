@@ -17,4 +17,6 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
-logging.basicConfig(filename='error.log', level=)
+logging.basicConfig(filename='error.log', level=logging.ERROR)
+
+
