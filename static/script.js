@@ -31,6 +31,7 @@ async function main() {
 }
 
 function createOrUpdateChart(labels, data) {
+    // Retrieve the canvas element for the stock chart
     const ctx = document.getElementById('stockChart').getContext('2d');
 
     if (window.myChart) {
