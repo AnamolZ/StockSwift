@@ -1,3 +1,33 @@
+"""
+Stock S
+
+This FastAPI-based web application provides real-time and historical stock data through various endpoints,
+including a WebSocket connection for dynamic updates.
+
+Modules and Libraries:
+- asyncio: Asynchronous programming to handle WebSocket connections.
+- logging: Configured to record errors in 'error.log'.
+- json: Used for JSON serialization.
+- yfinance: Library for fetching stock data.
+- FastAPI: Modern, fast (high-performance), web framework for building APIs.
+- CORSMiddleware: Middleware for Cross-Origin Resource Sharing.
+- StaticFiles: Middleware to serve static files.
+- HTMLResponse: FastAPI response class for serving HTML content.
+
+Application Structure:
+- 'get_stock_prices': Function to retrieve the latest stock prices and historical data.
+- '/': Route serving the static HTML index page.
+- '/data': Route providing the latest stock prices and historical data.
+- '/favicon.ico': Route for favicon (not necessary).
+- '/ws': WebSocket endpoint for real-time stock data updates.
+
+Please note that this application uses the 'yfinance' library to fetch stock data.
+For WebSocket connections, the server sends stock updates every 5 seconds to connected clients.
+
+Author: [Your Name]
+Date: [Current Date]
+"""
+
 import asyncio
 import logging
 import json
