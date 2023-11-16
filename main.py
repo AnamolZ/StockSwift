@@ -39,3 +39,11 @@ def get_stock_prices():
             logging.error(f"Error fetching data for {symbol}: {e}")
     return stock_data
 
+@app.get("/", response_class=HTMLResponse)
+async def read_root():
+    index_path = "./static/index.html"
+    with open(index_path, "r", encoding="utf-8") as file:
+        content = file.read()
+    return HTMLResponse(content)
+
+@app.get()
