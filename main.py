@@ -109,6 +109,7 @@ async def websocket_endpoint(websocket: WebSocket):
                 if stock_prices != last_stock_prices:
                     # Convert stock prices to JSON format
                     await websocket.send_text(json.dumps(stock_prices))
+                    # Update last stock prices to avoid sending duplicate updates
                     last_stock_prices = stock_prices
                 await asyncio.sleep(5)
         # Create a task to run the send_stock_prices function
