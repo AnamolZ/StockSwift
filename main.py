@@ -19,6 +19,7 @@ app.add_middleware(
     allow_headers=["*"]
 )
 
+# Configure logging to record errors in a file
 logging.basicConfig(filename='error.log', level=logging.ERROR)
 
 app.mount("/static", StaticFiles(directory="./static"), name="static")
