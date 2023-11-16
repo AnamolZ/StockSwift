@@ -60,12 +60,12 @@ async def read_root():
         "stock_data": stock_prices
     }
 
-# Define route for favicon (!NOT NECESSARY)
+# Route for favicon (!NOT NECESSARY)
 @app.get("/favicon.ico")
 async def get_favicon():
     return {"message": "No favicon here"}
 
-# Endpoint to provide (RT)stock data
+# Endpoint to provide (RT) stock data
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     try:
