@@ -104,6 +104,7 @@ async def websocket_endpoint(websocket: WebSocket):
         async def send_stock_prices():
             nonlocal last_stock_prices
             while True:
+                # Fetch the latest stock prices
                 stock_prices = get_stock_prices()
                 if stock_prices != last_stock_prices:
                     await websocket.send_text(json.dumps(stock_prices))
