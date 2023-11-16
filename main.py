@@ -65,7 +65,7 @@ async def read_root():
 async def get_favicon():
     return {"message": "No favicon here"}
 
-# Endpoint to provide real-time stock data
+# Endpoint to provide (RT)stock data
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
     try:
