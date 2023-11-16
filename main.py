@@ -1,5 +1,5 @@
 """
-Stock S
+Stock Swift
 
 This FastAPI-based web application provides real-time and historical stock data through various endpoints,
 including a WebSocket connection for dynamic updates.
