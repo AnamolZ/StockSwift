@@ -1,5 +1,6 @@
 async function main() {
     try {
+        // Retrieve the loading element and set its display to 'block'
         const loadingElement = document.getElementById('loading');
         loadingElement.style.display = 'block';
         const chartContainer = document.getElementById('stockChart');
