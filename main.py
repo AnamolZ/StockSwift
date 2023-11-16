@@ -26,6 +26,12 @@ logging.basicConfig(filename='error.log', level=logging.ERROR)
 app.mount("/static", StaticFiles(directory="./static"), name="static")
 
 def get_stock_prices():
+    """
+    Retrieves the latest stock prices and historical data for a list of symbols.
+
+    Returns:
+        A dictionary containing stock data for each symbol.
+    """
     symbols = ["AAPL", "AMZN", "GOOGL", "MSFT", "TSLA", "GOOG", "FB", "NVDA", "BA", "NFLX"]
     stock_data = {}
     for symbol in symbols:
