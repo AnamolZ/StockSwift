@@ -24,7 +24,6 @@ app.mount("/static", StaticFiles(directory="./static"), name="static")
 def get_stock_prices():
     symbols = ["AAPL", "AMZN", "GOOGL", "MSFT", "TSLA", "GOOG", "FB", "NVDA", "BA", "NFLX"]
     stock_data = {}
-
     for symbol in symbols:
         try:
             stock = yf.Ticker(symbol)
@@ -39,3 +38,4 @@ def get_stock_prices():
         except Exception as e:
             logging.error(f"Error fetching data for {symbol}: {e}")
     return stock_data
+
