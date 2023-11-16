@@ -46,4 +46,10 @@ async def read_root():
         content = file.read()
     return HTMLResponse(content)
 
-@app.get()
+@app.get("/data")
+async def read_root():
+    stock_prices = get_stock_prices()
+    return {
+        "message": "Welcome to the Stock Data API",
+        "stock_data": stock_prices
+    }
