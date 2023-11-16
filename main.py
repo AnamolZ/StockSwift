@@ -38,4 +38,4 @@ def get_stock_prices():
             }
         except Exception as e:
             logging.error(f"Error fetching data for {symbol}: {e}")
-                
+    return stock_data
