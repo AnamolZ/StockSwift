@@ -24,3 +24,20 @@ h1 {
     flex: 1;
     margin-right: 20px;
 }
+.loading {
+    display: none;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    margin-top: 20px;
+}
+canvas {
+    width: 100%;
+    max-height: 700px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+    margin-left: 1%;
+    box-shadow: 0 0 20px rgba(44, 62, 80, 0.1);
+}
