@@ -115,6 +115,7 @@ async def websocket_endpoint(websocket: WebSocket):
         # Create a task to run the send_stock_prices function
         task = asyncio.create_task(send_stock_prices())
         try:
+            # Keep the connection open until the client closes it or an error occurs
             while True:
                 await asyncio.sleep(1)
         except asyncio.CancelledError:
