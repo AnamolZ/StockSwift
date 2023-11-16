@@ -78,6 +78,7 @@ async def websocket_endpoint(websocket: WebSocket):
                     await websocket.send_text(json.dumps(stock_prices))
                     last_stock_prices = stock_prices
                 await asyncio.sleep(5)
+        # Create a task to run the send_stock_prices function
         task = asyncio.create_task(send_stock_prices())
         try:
             while True:
