@@ -58,3 +58,5 @@ async def read_root():
 async def get_favicon():
     return {"message": "No favicon here"}
 
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
