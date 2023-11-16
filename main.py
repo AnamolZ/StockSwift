@@ -22,7 +22,7 @@ app.add_middleware(
 # Configure logging to record errors in a designated file
 logging.basicConfig(filename='error.log', level=logging.ERROR)
 
-# Mount a directory for serving static files
+# Mount the '/static' directory for serving static files
 app.mount("/static", StaticFiles(directory="./static"), name="static")
 
 def get_stock_prices():
