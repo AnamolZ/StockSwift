@@ -58,7 +58,8 @@ async def read_root():
         "message": "Welcome to the Stock Data API",
         "stock_data": stock_prices
     }
-# Define route for favicon !NOT NECESSARY
+
+# Define route for favicon (!NOT NECESSARY)
 @app.get("/favicon.ico")
 async def get_favicon():
     return {"message": "No favicon here"}
