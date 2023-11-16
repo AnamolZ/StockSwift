@@ -20,4 +20,7 @@ h1 {
     align-items: center;
     padding: 20px;
 }
-
+#chartSection {
+    flex: 1;
+    margin-right: 20px;
+}
