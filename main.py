@@ -122,8 +122,10 @@ async def websocket_endpoint(websocket: WebSocket):
             # If the task is cancelled, pass silently
             pass
         finally:
+            # Cancel the task to stop sending stock updates
             task.cancel()
 
     except Exception as e:
+        # If an error occurs, log the error and close the connection
         logging.error(f"WebSocket connection error: {e}")
         raise
