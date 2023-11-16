@@ -63,7 +63,6 @@ async def websocket_endpoint(websocket: WebSocket):
     try:
         await websocket.accept()
         last_stock_prices = None
-
         async def send_stock_prices():
             nonlocal last_stock_prices
             while True:
@@ -74,7 +73,6 @@ async def websocket_endpoint(websocket: WebSocket):
                 await asyncio.sleep(5)
 
         task = asyncio.create_task(send_stock_prices())
-
         try:
             while True:
                 await asyncio.sleep(1)
