@@ -30,6 +30,7 @@ def get_stock_prices():
     stock_data = {}
     for symbol in symbols:
         try:
+            # Use yfinance library to fetch stock data
             stock = yf.Ticker(symbol)
             data = stock.history(period="1d")
             last_price = round(data["Close"].iloc[-1], 2)
