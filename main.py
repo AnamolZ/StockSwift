@@ -164,4 +164,10 @@ async def websocket_endpoint(websocket: WebSocket):
         logging.error(f"WebSocket connection error: {e}")
         raise
 """
+    Instructions:
+    - Ensure that all necessary dependencies are installed (use requirements.txt or similar).
+    - Start the FastAPI application using the following command:
+        uvicorn your_module_name:app --reload
+    - Access the API documentation at http://127.0.0.1:8000/docs for interactive documentation.
+    - Visit http://127.0.0.1:8000/ in your browser to access the main application.
 """
