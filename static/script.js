@@ -38,11 +38,9 @@ function createOrUpdateChart(labels, data) {
     const ctx = document.getElementById('stockChart').getContext('2d');
 
     if (window.myChart) {
-
         window.myChart.data.labels = labels;
         window.myChart.data.datasets[0].data = data;
         window.myChart.data.datasets[1].data = data;
-
         window.myChart.update();
     } else {
 
