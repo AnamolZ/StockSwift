@@ -1,6 +1,6 @@
 import asyncio
 import logging
-module for data serialization
+# Module for data serialization
 import json
 import yfinance as yf
 
