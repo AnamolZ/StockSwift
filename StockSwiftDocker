@@ -9,8 +9,10 @@ COPY . /app/
 # Pakage installation
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Port availability
 EXPOSE 8000
 
+# Running in a production environment
 ENV APP_MODE=production
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
