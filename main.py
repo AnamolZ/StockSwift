@@ -100,6 +100,7 @@ async def websocket_endpoint(websocket: WebSocket):
         await websocket.accept()
         # Initialize variables to track stock prices
         last_stock_prices = None
+        # Define an asynchronous task to send stock updates periodically
         async def send_stock_prices():
             nonlocal last_stock_prices
             while True:
