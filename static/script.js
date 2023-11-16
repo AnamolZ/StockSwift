@@ -33,3 +33,52 @@ async function main() {
     }
 }
 
+
+function createOrUpdateChart(labels, data) {
+    const ctx = document.getElementById('stockChart').getContext('2d');
+
+    if (window.myChart) {
+
+        window.myChart.data.labels = labels;
+        window.myChart.data.datasets[0].data = data;
+        window.myChart.data.datasets[1].data = data;
+
+        window.myChart.update();
+    } else {
+
+        window.myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Stock Prices (Bar)',
+                    data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                }, {
+                    label: 'Stock Prices (Line)',
+                    data,
+                    borderColor: 'white',
+                    borderWidth: 2,
+                    fill: false,
+                    type: 'line',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 500,
+                        ticks: { color: 'white' }
+                    },
+                    x: { ticks: { color: 'white' } }
+                },
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });            
+    }
+}
+
+main();
