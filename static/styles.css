@@ -50,3 +50,17 @@ footer {
     bottom: 0;
     width: 100%;
 }
+@media only screen and (max-width: 970px) {
+    #chartSection {
+        flex: none;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    canvas {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-top: 14%;
+    }
+}
