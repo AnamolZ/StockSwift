@@ -10,6 +10,7 @@ async function main() {
 
         // Establish a WebSocket connection to receive real-time stock data
         const socket = new WebSocket('ws://localhost:8000/ws');
+        
         // Handle incoming messages from the WebSocket
         socket.onmessage = async (event) => {
             const stockData = JSON.parse(event.data);
