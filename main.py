@@ -94,7 +94,8 @@ async def websocket_endpoint(websocket: WebSocket):
     Establishes a WebSocket connection and periodically sends real-time stock updates to the client.
 
     Args:
-        webs
+        websocket: The WebSocket connection object.
+    """
     try:
         await websocket.accept()
         last_stock_prices = None
