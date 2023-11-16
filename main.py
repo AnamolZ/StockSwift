@@ -39,6 +39,7 @@ def get_stock_prices():
             # Fetch stock data using yfinance
             stock = yf.Ticker(symbol)
             data = stock.history(period="1d")
+            # Extract relevant data from the historical data
             last_price = round(data["Close"].iloc[-1], 2)
             history = [round(price, 2) for price in data["Close"].tolist()]
             stock_data[symbol] = {
