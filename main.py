@@ -20,3 +20,4 @@ app.add_middleware(
 logging.basicConfig(filename='error.log', level=logging.ERROR)
 
 app.mount("/static", StaticFiles(directory="./static"), name="static")
+
