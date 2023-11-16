@@ -2,7 +2,6 @@ async function main() {
     try {
         const loadingElement = document.getElementById('loading');
         loadingElement.style.display = 'block';
-
         const chartContainer = document.getElementById('stockChart');
         chartContainer.style.display = 'none';
 
