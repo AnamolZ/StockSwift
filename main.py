@@ -1,8 +1,6 @@
 import asyncio
 import logging
-# Module for data serialization
 import json
-# Module for stock data retrieval
 import yfinance as yf
 
 from fastapi import FastAPI, WebSocket
