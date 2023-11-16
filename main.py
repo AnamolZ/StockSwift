@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 
+FastAPI application instance
 app = FastAPI()
 
 # Configure Cross-Origin Resource Sharing (CORS) middleware to handle web security
