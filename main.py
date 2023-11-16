@@ -88,6 +88,13 @@ async def get_favicon():
 # Endpoint to provide (RT) stock data
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
+    """
+    Handles WebSocket connections to provide real-time stock data updates.
+
+    Establishes a WebSocket connection and periodically sends real-time stock updates to the client.
+
+    Args:
+        webs
     try:
         await websocket.accept()
         last_stock_prices = None
