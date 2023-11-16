@@ -20,7 +20,7 @@ async function main() {
             const data = prices.map(price => parseFloat(price.toFixed(2)));
 
             createOrUpdateChart(labels, data);
-
+            // Schedule periodic updates of the stock chart every 5 seconds
             setInterval(() => {
                 createOrUpdateChart(labels, data);
             }, 5000);
