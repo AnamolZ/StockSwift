@@ -60,3 +60,29 @@ async def get_favicon():
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):
+    try:
+        await websocket.accept()
+        last_stock_prices = None
+
+        async def send_stock_prices():
+            nonlocal last_stock_prices
+            while True:
+                stock_prices = get_stock_prices()
+                if stock_prices != last_stock_prices:
+                    await websocket.send_text(json.dumps(stock_prices))
+                    last_stock_prices = stock_prices
+                await asyncio.sleep(5)
+
+        task = asyncio.create_task(send_stock_prices())
+
+        try:
+            while True:
+                await asyncio.sleep(1)
+        except asyncio.CancelledError:
+            pass
+        finally:
+            task.cancel()
+
+    except Exception as e:
+        logging.error(f"WebSocket connection error: {e}")
+        raise
