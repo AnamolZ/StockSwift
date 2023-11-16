@@ -27,7 +27,6 @@ async function main() {
     }
 }
 
-
 function createOrUpdateChart(labels, data) {
     const ctx = document.getElementById('stockChart').getContext('2d');
 
