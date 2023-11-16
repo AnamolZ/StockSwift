@@ -10,6 +10,7 @@ from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
+# Configure CORS middleware to allow all origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
