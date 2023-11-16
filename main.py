@@ -119,6 +119,7 @@ async def websocket_endpoint(websocket: WebSocket):
             while True:
                 await asyncio.sleep(1)
         except asyncio.CancelledError:
+            # If the task is cancelled, pass silently
             pass
         finally:
             task.cancel()
