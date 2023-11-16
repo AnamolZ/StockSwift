@@ -55,6 +55,12 @@ def get_stock_prices():
 # Route to serve HTML content at root endpoint
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
+    """
+    Serves the static HTML index page.
+
+    Returns:
+        An HTMLResponse containing the index page content.
+    """
     index_path = "./static/index.html"
     with open(index_path, "r", encoding="utf-8") as file:
         content = file.read()
