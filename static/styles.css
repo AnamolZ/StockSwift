@@ -14,3 +14,10 @@ h1 {
     font-size: 36px;
     color: #ecf0f1;
 }
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
