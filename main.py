@@ -24,8 +24,8 @@ Application Structure:
 Please note that this application uses the 'yfinance' library to fetch stock data.
 For WebSocket connections, the server sends stock updates every 5 seconds to connected clients.
 
-Author: [Your Name]
-Date: [Current Date]
+Author: Anamol Dhakal
+Date: 2023-11-16
 """
 
 import asyncio
