@@ -3,11 +3,12 @@ async function main() {
         // Retrieve the loading element and set its display to 'block'
         const loadingElement = document.getElementById('loading');
         loadingElement.style.display = 'block';
-        
+
         // Retrieve the stock chart container and initially hide it
         const chartContainer = document.getElementById('stockChart');
         chartContainer.style.display = 'none';
 
+        // Establish a WebSocket connection to receive real-time stock data
         const socket = new WebSocket('ws://localhost:8000/ws');
         socket.onmessage = async (event) => {
             const stockData = JSON.parse(event.data);
