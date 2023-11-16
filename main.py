@@ -68,6 +68,12 @@ async def read_root():
 
 @app.get("/data")
 async def read_root():
+    """
+    Provides the latest stock prices and historical data for the specified symbols.
+
+    Returns:
+        A JSON response containing stock data for each symbol.
+    """
     stock_prices = get_stock_prices()
     return {
         "message": "Welcome to the Stock Data API",
