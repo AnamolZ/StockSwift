@@ -42,6 +42,7 @@ def get_stock_prices():
             # Extract relevant data from the historical data
             last_price = round(data["Close"].iloc[-1], 2)
             history = [round(price, 2) for price in data["Close"].tolist()]
+            # Create a dictionary with stock information
             stock_data[symbol] = {
                 "symbol": symbol,
                 "price": last_price,
