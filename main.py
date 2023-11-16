@@ -107,6 +107,7 @@ async def websocket_endpoint(websocket: WebSocket):
                 # Fetch the latest stock prices
                 stock_prices = get_stock_prices()
                 if stock_prices != last_stock_prices:
+                    # Convert stock prices to JSON format
                     await websocket.send_text(json.dumps(stock_prices))
                     last_stock_prices = stock_prices
                 await asyncio.sleep(5)
