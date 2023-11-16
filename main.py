@@ -21,3 +21,5 @@ logging.basicConfig(filename='error.log', level=logging.ERROR)
 
 app.mount("/static", StaticFiles(directory="./static"), name="static")
 
+def get_stock_prices():
+    
