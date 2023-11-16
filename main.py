@@ -163,10 +163,8 @@ async def websocket_endpoint(websocket: WebSocket):
         # If an error occurs, log the error and close the connection
         logging.error(f"WebSocket connection error: {e}")
         raise
+
 """
-
-
-    - Ensure that all necessary dependencies are installed (use requirements.txt or similar).
+Ensure that all necessary dependencies are installed (use requirements.txt or similar).
     - Access the API documentation at http://127.0.0.1:8000/docs for interactive documentation.
-
 """
