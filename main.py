@@ -30,7 +30,7 @@ def get_stock_prices():
     stock_data = {}
     for symbol in symbols:
         try:
-            # Use yfinance library to fetch stock data
+            # yfinance library to fetch stock data
             stock = yf.Ticker(symbol)
             data = stock.history(period="1d")
             last_price = round(data["Close"].iloc[-1], 2)
@@ -44,7 +44,7 @@ def get_stock_prices():
             logging.error(f"Error fetching data for {symbol}: {e}")
     return stock_data
 
-# Define route to serve HTML content at root endpoint
+# Route to serve HTML content at root endpoint
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
     index_path = "./static/index.html"
