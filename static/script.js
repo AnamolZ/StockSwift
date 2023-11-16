@@ -15,11 +15,7 @@ async function main() {
 
             const labels = Object.keys(stockData);
             const prices = labels.map(symbol => stockData[symbol].price);
-        
             const data = prices.map(price => parseFloat(price.toFixed(2)));
-
-            console.log(labels);
-            console.log(data);
 
             createOrUpdateChart(labels, data);
 
@@ -27,7 +23,6 @@ async function main() {
                 createOrUpdateChart(labels, data);
             }, 5000);
         };
-
     } catch (error) {
         console.error('Error in main function:', error);
     }
