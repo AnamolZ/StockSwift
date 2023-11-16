@@ -15,6 +15,9 @@ Modules and Libraries:
 - HTMLResponse: FastAPI response class for serving HTML content.
 
 Application Structure:
+- FastAPI instance: The main application instance for defining routes and handling requests.
+- CORSMiddleware: Middleware configured to handle Cross-Origin Resource Sharing.
+- StaticFiles: Middleware for serving static files such as HTML pages.
 - 'get_stock_prices': Function to retrieve the latest stock prices and historical data.
 - '/': Route serving the static HTML index page.
 - '/data': Route providing the latest stock prices and historical data.
