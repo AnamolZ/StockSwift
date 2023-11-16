@@ -1,2 +1,4 @@
 yfinance==0.2.31
 fastapi==0.104.1
+uvicorn==0.15.0
+websockets
