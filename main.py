@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import json
+import yfinance as yf
 
 from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
