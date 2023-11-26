@@ -2678,3 +2678,18 @@ INFO:uvicorn.error:Application startup complete.
 INFO:uvicorn.error:Started server process [20600]
 INFO:uvicorn.error:Waiting for application startup.
 INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:Started server process [21496]
+INFO:uvicorn.error:Waiting for application startup.
+INFO:uvicorn.error:Application startup complete.
+INFO:uvicorn.error:('127.0.0.1', 38915) - "WebSocket /ws" [accepted]
+INFO:uvicorn.error:connection open
+ERROR:yfinance:FB: No data found, symbol may be delisted
+ERROR:root:Error fetching data for FB: single positional indexer is out-of-bounds
+ERROR:yfinance:FB: No data found, symbol may be delisted
+ERROR:root:Error fetching data for FB: single positional indexer is out-of-bounds
+ERROR:yfinance:FB: No data found, symbol may be delisted
+ERROR:root:Error fetching data for FB: single positional indexer is out-of-bounds
+ERROR:yfinance:FB: No data found, symbol may be delisted
+ERROR:root:Error fetching data for FB: single positional indexer is out-of-bounds
+ERROR:yfinance:FB: No data found, symbol may be delisted
+ERROR:root:Error fetching data for FB: single positional indexer is out-of-bounds
