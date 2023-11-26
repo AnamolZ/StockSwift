@@ -10,7 +10,6 @@ async function main() {
         const socket = new WebSocket('ws://localhost:8000/ws');
         // Handle incoming messages from the WebSocket
         socket.onmessage = async (event) => {
-            // Parse the received JSON data
             const stockData = JSON.parse(event.data);
             // Hide the loading element and display the stock chart container
             loadingElement.style.display = 'none';
@@ -21,7 +20,6 @@ async function main() {
             const data = prices.map(price => parseFloat(price.toFixed(2)));
 
             createOrUpdateChart(labels, data);
-            // Schedule periodic updates of the stock chart every 5 seconds
             setInterval(() => {
                 createOrUpdateChart(labels, data);
             }, 5000);
