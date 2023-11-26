@@ -41,6 +41,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 
+from random import randint
+
 # FastAPI application instance
 app = FastAPI()
 
@@ -75,6 +77,7 @@ def get_stock_prices():
             data = stock.history(period="1d")
             # Extract relevant data from the historical data
             last_price = round(data["Close"].iloc[-1], 2)
+            # last_price = min(round(data["Close"].iloc[-1], 2) * randint(1, 3) -152, 400) #For Demo Purpose
             history = [round(price, 2) for price in data["Close"].tolist()]
             # Create a dictionary with stock information
             stock_data[symbol] = {
@@ -84,6 +87,7 @@ def get_stock_prices():
             }
         except Exception as e:
             logging.error(f"Error fetching data for {symbol}: {e}")
+    print(stock_data)
     return stock_data
 
 # Route to serve HTML content at root endpoint
