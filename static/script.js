@@ -1,80 +1,82 @@
-async function main() {
-    try {
-        // Retrieve the loading element and set its display to 'block'
-        const loadingElement = document.getElementById('loading');
-        loadingElement.style.display = 'block';
-        // Retrieve the stock chart container and initially hide it
-        const chartContainer = document.getElementById('stockChart');
-        chartContainer.style.display = 'none';
-        // Establish a WebSocket connection to receive real-time stock data
-        const socket = new WebSocket('ws://localhost:8000/ws');
-        // Handle incoming messages from the WebSocket
-        socket.onmessage = async (event) => {
-            // Parse the received JSON data
-            const stockData = JSON.parse(event.data);
-            // Hide the loading element and display the stock chart container
-            loadingElement.style.display = 'none';
-            chartContainer.style.display = 'block';
+document.addEventListener('DOMContentLoaded', function () {
+    const eventSource = new EventSource("/stock_data_generator");
+    const loadingElement = document.getElementById('loading');
+    const chartContainer = document.getElementById('stockChart');
 
-            const labels = Object.keys(stockData);
-            const prices = labels.map(symbol => stockData[symbol].price);
-            const data = prices.map(price => parseFloat(price.toFixed(2)));
+    loadingElement.style.display = 'block';
+    chartContainer.style.display = 'none';
 
-            createOrUpdateChart(labels, data);
-            // Schedule periodic updates of the stock chart every 5 seconds
-            setInterval(() => {
-                createOrUpdateChart(labels, data);
-            }, 5000);
-        };
-    } catch (error) {
-        console.error('Error in main function:', error);
-    }
-}
+    eventSource.onmessage = function (event) {
+        const stockData = JSON.parse(event.data);
+        loadingElement.style.display = 'none';
+        chartContainer.style.display = 'block';
 
-function createOrUpdateChart(labels, data) {
-    // Retrieve the canvas element for the stock chart
-    const ctx = document.getElementById('stockChart').getContext('2d');
+        const labels = Object.keys(stockData);
+        const data = Object.values(stockData);
+        const colors = generateRandomColors(data.length);
 
-    if (window.myChart) {
-        window.myChart.data.labels = labels;
-        window.myChart.data.datasets[0].data = data;
-        window.myChart.data.datasets[1].data = data;
-        window.myChart.update();
-    } else {
+        createOrUpdateChart(labels, data, colors);
 
-        window.myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels,
-                datasets: [{
-                    label: 'Stock Prices (Bar)',
-                    data,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
-                }, {
-                    label: 'Stock Prices (Line)',
-                    data,
-                    borderColor: 'white',
-                    borderWidth: 2,
-                    fill: false,
-                    type: 'line',
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 500,
-                        ticks: { color: 'white' }
-                    },
-                    x: { ticks: { color: 'white' } }
+        setInterval(() => {
+            createOrUpdateChart(labels, data, colors);
+        }, 5000);
+    };
+
+    function createOrUpdateChart(labels, data, colors) {
+        const ctx = document.getElementById('stockChart').getContext('2d');
+
+        if (window.myChart) {
+            window.myChart.data.labels = labels;
+            window.myChart.data.datasets[0].data = data;
+            window.myChart.data.datasets[1].data = data;
+            window.myChart.update();
+        } else {
+            window.myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels,
+                    datasets: [{
+                        label: 'Stock Prices (Bar)',
+                        data,
+                        backgroundColor: colors.map(color => `rgba(${color.join(',')}, 0.2)`),
+                        borderColor: colors.map(color => `rgba(${color.join(',')}, 1)`),
+                        borderWidth: 1,
+                    }, {
+                        label: 'Stock Prices (Line)',
+                        data,
+                        borderColor: 'white',
+                        borderWidth: 2,
+                        fill: false,
+                        type: 'line',
+                    }]
                 },
-                responsive: true,
-                maintainAspectRatio: false
-            }
-        });            
+                options: {
+                    scales: {
+                        y: {
+                            display: true,
+                            beginAtZero: true,
+                            max: 500,
+                            ticks: { color: 'white' },
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)',
+                                borderColor: 'rgba(255, 255, 255, 0.1)',
+                                borderWidth: 1
+                            }
+                        },
+                        x: { ticks: { color: 'white' } }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                }
+            });
+        }
     }
-}
 
-main();
+    function generateRandomColors(count) {
+        const colors = [];
+        for (let i = 0; i < count; i++) {
+            colors.push([Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)]);
+        }
+        return colors;
+    }
+});

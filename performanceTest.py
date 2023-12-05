@@ -2,7 +2,7 @@ import time
 import requests
 
 def test_performance():
-    url = "http://localhost:8000/"
+    url = "http://127.0.0.2:8822/"
     num_requests = 10
 
     start_time = time.time()
