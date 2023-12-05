@@ -1,10 +1,10 @@
 # StockSwift
   #### Real-Time Stock Market Insights at Your Fingertips
-StockSwift is a sophisticated web application meticulously crafted to empower investors with real-time stock market insights and visualize historical price trends for the most prominent companies shaping the financial landscape. Leveraging the power of the Yahoo Finance API, StockSwift delivers an interactive and visually captivating experience, empowering you to make informed investment decisions with confidence.
+StockSwift is a sophisticated web application meticulously crafted to empower investors with real-time stock market insights and visualize historical price trends for the most prominent companies shaping the financial landscape. Leveraging the power of the [Google Finance API](https://github.com/AnamolZ/GoogleFinance/), StockSwift delivers an interactive and visually captivating experience, empowering you to make informed investment decisions with confidence.
 
 ## Unparalleled Features
 
-- **Real-time Stock Price Updates:** Stay ahead of the market with real-time updates of stock prices for the most influential companies, ensuring you never miss a critical market movement.
+- **StockPulse:** Stay ahead of the market with real-time updates of stock prices for the most influential companies, ensuring you never miss a critical market movement.
 
 - **Interactive Bar Charts and Line Graphs:** Immerse yourself in the intricacies of market trends with interactive bar charts and line graphs, providing a comprehensive visual representation of historical price movements.
 
